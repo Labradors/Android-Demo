@@ -5,6 +5,7 @@ manifest-merger-release-report.txt
 keys.xml
 #*.keystore
 
+/LICENSE
 ### Android
 ###########
 # built application files
