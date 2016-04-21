@@ -4,10 +4,34 @@
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context="org.jiangtao.android.MainActivity">
+		tools:context=".ui.activity.MainActivity">
 
-	<org.jiangtao.android.ui.widget.IndexableListView
-			android:id="@+id/list"
+	<android.support.v7.widget.SearchView
+			android:id="@+id/search"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"/>
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="20dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:layout_marginTop="20dp"
+			android:queryHint="请输入城市名拼音或汉字"/>
+
+	<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@+id/search">
+
+		<android.support.v7.widget.RecyclerView
+				android:id="@+id/city"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"/>
+
+		<android.support.v7.widget.RecyclerView
+				android:id="@+id/title"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_gravity="right"/>
+
+	</FrameLayout>
+
 </RelativeLayout>
