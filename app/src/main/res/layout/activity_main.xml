@@ -16,22 +16,86 @@
 			android:layout_marginTop="20dp"
 			android:queryHint="请输入城市名拼音或汉字"/>
 
-	<FrameLayout
+	<RelativeLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_below="@+id/search">
 
+		<LinearLayout
+				android:id="@+id/locations"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="?android:attr/selectableItemBackground"
+				android:gravity="center"
+				android:orientation="vertical"
+		>
+
+			<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="20dp"
+					android:paddingStart="20dp"
+					android:text="已定位城市"
+					android:textSize="16sp"/>
+
+			<TextView
+					android:id="@+id/locations_city"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:gravity="center_vertical"
+					android:paddingBottom="20dp"
+					android:paddingLeft="20dp"
+					android:paddingStart="20dp"
+					android:paddingTop="20dp"
+					android:text="成都市"
+					style="@style/Theme.AppCompat.Dialog"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+				android:id="@+id/hot"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/locations"
+				android:orientation="vertical">
+
+			<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="20dp"
+					android:text="热门城市"
+					android:textSize="16sp"/>
+
+			<org.jiangtao.android.ui.view.WrapHeightGridView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"/>
+
+		</LinearLayout>
+
 		<android.support.v7.widget.RecyclerView
 				android:id="@+id/city"
 				android:layout_width="match_parent"
-				android:layout_height="match_parent"/>
-
-		<android.support.v7.widget.RecyclerView
-				android:id="@+id/title"
-				android:layout_width="wrap_content"
 				android:layout_height="match_parent"
-				android:layout_gravity="right"/>
+				android:layout_below="@+id/hot"/>
 
-	</FrameLayout>
+		<TextView
+				android:id="@+id/text_pro"
+				android:layout_width="100dp"
+				android:layout_height="100dp"
+				android:layout_centerHorizontal="true"
+				android:gravity="center"
+				android:visibility="gone"
+		/>
+
+	</RelativeLayout>
+
+	<android.support.v7.widget.RecyclerView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_alignParentEnd="true"
+			android:layout_alignParentRight="true"
+			android:layout_below="@+id/search"/>
 
 </RelativeLayout>

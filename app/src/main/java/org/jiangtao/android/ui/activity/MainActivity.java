@@ -9,8 +9,6 @@ import android.support.v7.widget.SearchView;
 import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import java.util.ArrayList;
-import java.util.List;
 import org.jiangtao.android.R;
 import support.ui.adapters.EasyRecyclerAdapter;
 import support.ui.adapters.EasyViewHolder;
@@ -27,16 +25,6 @@ public class MainActivity extends AppCompatActivity implements EasyViewHolder.On
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
     mTitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
-  }
-
-  public List<String> getLetter() {
-    String letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char[] listArray = letter.toCharArray();
-    ArrayList<String> list = new ArrayList<>();
-    for (int i = 0; i < listArray.length; i++) {
-      list.add(listArray[i] + "");
-    }
-    return list;
   }
 
   @Override public void onItemClick(int position, View view) {
