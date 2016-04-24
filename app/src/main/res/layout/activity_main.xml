@@ -4,6 +4,7 @@
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:background="@android:color/white"
 		tools:context=".ui.activity.MainActivity">
 
 	<android.support.v7.widget.SearchView
@@ -14,6 +15,7 @@
 			android:layout_marginLeft="20dp"
 			android:layout_marginRight="20dp"
 			android:layout_marginTop="20dp"
+			android:searchMode="showSearchIconAsBadge|showSearchLabelAsBadge"
 			android:queryHint="请输入城市名拼音或汉字"/>
 
 	<RelativeLayout
@@ -40,15 +42,17 @@
 
 			<TextView
 					android:id="@+id/locations_city"
-					android:layout_width="match_parent"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_gravity="center"
-					android:gravity="center_vertical"
+					android:layout_gravity="center_vertical"
+					android:background="@drawable/text_shape"
+					android:gravity="center"
 					android:paddingBottom="20dp"
 					android:paddingLeft="20dp"
 					android:paddingStart="20dp"
 					android:paddingTop="20dp"
 					android:text="成都市"
+					android:textSize="16sp"
 					style="@style/Theme.AppCompat.Dialog"/>
 
 		</LinearLayout>
@@ -68,8 +72,10 @@
 					android:textSize="16sp"/>
 
 			<org.jiangtao.android.ui.view.WrapHeightGridView
+					android:id="@+id/gridview"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"/>
+					android:layout_height="wrap_content"
+					android:numColumns="3"/>
 
 		</LinearLayout>
 
@@ -91,8 +97,15 @@
 	</RelativeLayout>
 
 	<android.support.v7.widget.RecyclerView
+			android:id="@+id/result"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@+id/search"
+			android:visibility="gone"/>
+
+	<android.support.v7.widget.RecyclerView
 			android:id="@+id/title"
-			android:layout_width="wrap_content"
+			android:layout_width="20dp"
 			android:layout_height="match_parent"
 			android:layout_alignParentEnd="true"
 			android:layout_alignParentRight="true"
