@@ -23,5 +23,10 @@
 			android:layout_height="wrap_content"
 			android:text="照相"/>
 
+	<TextView
+			android:id="@+id/text_span_string"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

@@ -3,8 +3,12 @@ package org.jiangtao.android.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,11 +30,20 @@ public class PhotoChoiceActivity extends AppCompatActivity {
 
   @Bind(R.id.photo_single_image) Button mPhotoSingleImage;
   @Bind(R.id.photo_multi_image) Button mPhotoMultiImage;
+  @Bind(R.id.text_span_string) TextView mTextSpanString;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_photo_choice);
     ButterKnife.bind(this);
+    init();
+  }
+
+  private void init() {
+    SpannableString ss = new SpannableString("你好");
+    ss.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.blue)), 0, ss.length(),
+        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    mTextSpanString.setText(ss);
   }
 
   @OnClick({ R.id.photo_single_image, R.id.photo_multi_image, R.id.photo_gallery })
