@@ -1,4 +1,4 @@
-package org.jiangtao.android_useful_utils.view.widget;
+package org.jiangtao.android_useful_utils.view.widget.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
