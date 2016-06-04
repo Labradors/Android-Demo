@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.smartydroid.android.starter.kit.widget.ForegroundRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-
-  <android.support.v7.widget.RecyclerView
-      android:id="@+id/city_recycler_view"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
+  <include
+      layout="@layout/include_toolbar_searchview"
+      android:id="@+id/ui_city_picker_toolbar"
       />
 
-</com.smartydroid.android.starter.kit.widget.ForegroundRelativeLayout>
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@+id/ui_city_picker_toolbar"
+      >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ui_view_city"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_include"
+        tools:ignore="ObsoleteLayoutParam,UnusedAttribute"
+        />
+    <TextView
+        android:id="@+id/ui_view_bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|end"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/im_view_bubble"
+        android:gravity="center"
+        android:textColor="#FFffffff"
+        android:textSize="48sp"
+        android:visibility="invisible"
+        tools:ignore="RtlHardcoded"
+        tools:text="A"
+        />
+    <org.jiangtao.android_useful_utils.view.widget.widget.SideBar
+        android:id="@+id/ui_view_sidebar"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|end"
+        />
+  </FrameLayout>
+</RelativeLayout>
