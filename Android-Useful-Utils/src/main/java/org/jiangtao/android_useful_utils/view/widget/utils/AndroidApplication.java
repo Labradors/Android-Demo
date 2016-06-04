@@ -12,7 +12,7 @@ import android.support.v4.content.ContextCompat;
 /**
  * Created by kevin on 16-6-4.
  */
-public final class AndroidApplication extends Application {
+public abstract class AndroidApplication extends Application {
 
   private static volatile Context sAppContext;
 

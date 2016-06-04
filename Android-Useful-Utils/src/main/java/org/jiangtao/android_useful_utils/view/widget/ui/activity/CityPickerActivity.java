@@ -1,17 +1,15 @@
 package org.jiangtao.android_useful_utils.view.widget.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import org.jiangtao.android_useful_utils.R;
 import org.jiangtao.android_useful_utils.view.widget.citypicker.CityPickerCallBack;
 import org.jiangtao.android_useful_utils.view.widget.widget.SideBar;
@@ -23,31 +21,41 @@ import org.jiangtao.android_useful_utils.view.widget.widget.SideBar;
 public class CityPickerActivity extends Activity implements CityPickerCallBack {
 
   public static int OPEN_CITY_PICKER = 100;
-  @BindView(name="ui_view_search") SearchView uiViewSearch;
-  @BindView(R.id.ui_toolbar_search) Toolbar uiToolbarSearch;
-  @BindView(R.id.ui_view_city) RecyclerView uiViewCity;
-  @BindView(R.id.ui_view_bubble) TextView uiViewBubble;
-  @BindView(R.id.ui_view_sidebar) SideBar uiViewSidebar;
-  private RecyclerView mCityPickerRecyclerView;
+  private SearchView mUiViewSearch;
+  private Toolbar mUiToolbarSearch;
+  private RecyclerView mUiViewCity;
+  private TextView mUiViewBubble;
+  private SideBar mUiViewSidebar;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_city_picker);
-    ButterKnife.bind(this);
+    initialization();
+    showToolBar();
   }
 
-  @Override public boolean onCreateOptionsMenu(Menu menu) {
-    MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.menu_item_city, menu);
-    return super.onCreateOptionsMenu(menu);
+  @SuppressLint("PrivateResource") private void showToolBar() {
+    mUiToolbarSearch.setTitle(getResources().getString(R.string.label_city_picker));
+    mUiToolbarSearch.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+    mUiToolbarSearch.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+      @Override public boolean onMenuItemClick(MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+          finish();
+        return true;
+      }
+    });
+    mUiViewSearch.setQueryHint("请输入城市名...");
+    mUiViewSearch.setInputType(InputType.TYPE_CLASS_TEXT);
+    mUiViewSearch.onActionViewExpanded();
+    mUiViewSearch.setIconified(true);
   }
 
-  @Override public boolean onOptionsItemSelected(MenuItem item) {
-    int i = item.getItemId();
-    if (i == R.id.action_search) {
-
-    }
-    return super.onOptionsItemSelected(item);
+  private void initialization() {
+    mUiViewSearch = (SearchView) findViewById(R.id.ui_view_search);
+    mUiToolbarSearch = (Toolbar) findViewById(R.id.ui_toolbar_search);
+    mUiViewCity = (RecyclerView) findViewById(R.id.ui_view_city);
+    mUiViewBubble = (TextView) findViewById(R.id.ui_view_bubble);
+    mUiViewSidebar = (SideBar) findViewById(R.id.ui_view_sidebar);
   }
 
   @Override protected void onDestroy() {

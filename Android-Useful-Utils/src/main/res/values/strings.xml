@@ -1,4 +1,5 @@
 <resources>
 	<string name="app_name">Android-Useful-Utils</string>
 	<string name="useful_city_search">搜索</string>
+	<string name="label_city_picker">城市选择</string>
 </resources>

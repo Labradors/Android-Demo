@@ -5,6 +5,5 @@ package org.jiangtao.android_useful_utils.view.widget.citypicker;
  * City Model
  */
 public abstract class CommonCity {
-
   public String city;
 }
