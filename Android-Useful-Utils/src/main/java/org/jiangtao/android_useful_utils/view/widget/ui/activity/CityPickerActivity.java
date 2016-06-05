@@ -160,7 +160,7 @@ public class CityPickerActivity extends AppCompatActivity
         }
       }).show();
     } else {
-      Toast.makeText(CityPickerActivity.this, "暂时没有数据..", Toast.LENGTH_SHORT).show();
+      Toast.makeText(CityPickerActivity.this, "没有这个城市哦,请重新查询..", Toast.LENGTH_SHORT).show();
     }
     return true;
   }

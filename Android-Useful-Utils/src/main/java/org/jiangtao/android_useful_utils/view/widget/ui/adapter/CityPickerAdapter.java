@@ -63,7 +63,7 @@ public class CityPickerAdapter extends RecyclerView.Adapter {
       if (position < mCityDatas.size() - 1) {
         allViewHolder.mNameTextView.setText(mCityDatas.get(position));
       }
-      if (position != 2) {
+      if (position != 2 && position < mCityDatas.size()) {
         String oldLetter =
             PinyinUtils.getFirstLetter(PinyinUtils.getPinYin(mCityDatas.get(position - 1)));
         String currentLetter =
@@ -75,9 +75,11 @@ public class CityPickerAdapter extends RecyclerView.Adapter {
           allViewHolder.mLetterTextView.setText(currentLetter);
         }
       } else {
-        allViewHolder.mLetterTextView.setVisibility(View.VISIBLE);
-        allViewHolder.mLetterTextView.setText(
-            PinyinUtils.getFirstLetter(PinyinUtils.getPinYin(mCityDatas.get(position))));
+        if (position < mCityDatas.size()) {
+          allViewHolder.mLetterTextView.setVisibility(View.VISIBLE);
+          allViewHolder.mLetterTextView.setText(
+              PinyinUtils.getFirstLetter(PinyinUtils.getPinYin(mCityDatas.get(position))));
+        }
       }
       allViewHolder.mNameTextView.setOnClickListener(new View.OnClickListener() {
         @Override public void onClick(View v) {
