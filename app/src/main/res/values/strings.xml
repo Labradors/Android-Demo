@@ -1,4 +1,4 @@
 <resources>
-	<string name="app_name">Android-Demo</string>
-	<string name="useful_city_search">搜索</string>
+  <string name="app_name">Android-Demo</string>
+  <string name="useful_city_search">搜索</string>
 </resources>

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import org.jiangtao.android_useful_utils.R;
+import org.jiangtao.android_useful_utils.view.widget.ui.androidinterface.OnItemClickListener;
 
 /**
  * Created by kevin on 16-6-5.
@@ -18,9 +19,11 @@ public class CityGridViewAdapter extends BaseAdapter {
 
   private List<String> mHotCityDatas;
   private Context mContext;
+  private OnItemClickListener mOnItemClickListener;
 
   public CityGridViewAdapter(Context context) {
     mContext = context;
+    mOnItemClickListener = (OnItemClickListener) context;
     mHotCityDatas = new ArrayList<>();
     mHotCityDatas.add("北京市");
     mHotCityDatas.add("上海市");
@@ -45,7 +48,7 @@ public class CityGridViewAdapter extends BaseAdapter {
     return position;
   }
 
-  @Override public View getView(int position, View convertView, ViewGroup parent) {
+  @Override public View getView(final int position, View convertView, ViewGroup parent) {
     TextView view = null;
     if (convertView == null) {
       convertView = LayoutInflater.from(mContext)
@@ -54,6 +57,11 @@ public class CityGridViewAdapter extends BaseAdapter {
     }
     if (view != null) {
       view.setText(mHotCityDatas.get(position));
+      view.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View v) {
+          mOnItemClickListener.onItemClick(mHotCityDatas.get(position));
+        }
+      });
     }
     return convertView;
   }

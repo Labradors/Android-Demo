@@ -1,7 +1,6 @@
 package org.jiangtao.android_useful_utils.view.widget.ui.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 import org.jiangtao.android_useful_utils.R;
+import org.jiangtao.android_useful_utils.view.widget.ui.androidinterface.OnItemClickListener;
 import org.jiangtao.android_useful_utils.view.widget.ui.viewholder.CityPickerViewHolder;
 import org.jiangtao.android_useful_utils.view.widget.ui.viewholder.HotViewHolder;
 import org.jiangtao.android_useful_utils.view.widget.ui.viewholder.LocationViewHolder;
@@ -25,11 +25,12 @@ public class CityPickerAdapter extends RecyclerView.Adapter {
   public static final int VIEW_TYPE_ALL = 2;
   private Context mContext;
   private ArrayList<String> mCityDatas;
-  private static String mLetter = "";
   private String mCity;
+  private OnItemClickListener mOnItemClickListener;
 
   public CityPickerAdapter(Context context, List<String> citys, String city) {
     this.mContext = context;
+    mOnItemClickListener = (OnItemClickListener) context;
     mCityDatas = new ArrayList<>();
     mCityDatas.clear();
     mCityDatas.addAll(citys);
@@ -41,7 +42,7 @@ public class CityPickerAdapter extends RecyclerView.Adapter {
       case VIEW_TYPE_ALL:
         View viewAll =
             LayoutInflater.from(mContext).inflate(R.layout.list_item_all_city, parent, false);
-        return new CityPickerViewHolder(viewAll);
+        return new CityPickerViewHolder(mContext, viewAll);
 
       case VIEW_TYPE_LOCATION:
         View viewLocation =
@@ -56,7 +57,7 @@ public class CityPickerAdapter extends RecyclerView.Adapter {
     return null;
   }
 
-  @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+  @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
     if (holder instanceof CityPickerViewHolder) {
       CityPickerViewHolder allViewHolder = (CityPickerViewHolder) holder;
       if (position < mCityDatas.size() - 1) {
@@ -78,12 +79,24 @@ public class CityPickerAdapter extends RecyclerView.Adapter {
         allViewHolder.mLetterTextView.setText(
             PinyinUtils.getFirstLetter(PinyinUtils.getPinYin(mCityDatas.get(position))));
       }
+      allViewHolder.mNameTextView.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View v) {
+          mOnItemClickListener.onItemClick(mCityDatas.get(position));
+        }
+      });
     } else if (holder instanceof HotViewHolder) {
       HotViewHolder hotViewHolder = (HotViewHolder) holder;
       hotViewHolder.mGridView.setAdapter(new CityGridViewAdapter(mContext));
     } else if (holder instanceof LocationViewHolder) {
       LocationViewHolder locationViewHolder = (LocationViewHolder) holder;
       locationViewHolder.mTextView.setText(mCity != null ? mCity : "正在定位当前城市...");
+      locationViewHolder.mTextView.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View v) {
+          if (mCity != null) {
+            mOnItemClickListener.onItemClick(mCity);
+          }
+        }
+      });
     }
   }
 
@@ -124,5 +137,17 @@ public class CityPickerAdapter extends RecyclerView.Adapter {
       default:
         return VIEW_TYPE_ALL;
     }
+  }
+
+  public ArrayList<String> queryCommonName(String name) {
+    ArrayList<String> lists = new ArrayList<>();
+    String letter = PinyinUtils.getPinYin(name);
+    for (String city : mCityDatas) {
+      String cityLetter = PinyinUtils.getPinYin(city);
+      if (letter.equals(cityLetter)) {
+        lists.add(city);
+      }
+    }
+    return lists;
   }
 }
