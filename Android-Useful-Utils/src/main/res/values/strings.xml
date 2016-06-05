@@ -2,4 +2,7 @@
 	<string name="app_name">Android-Useful-Utils</string>
 	<string name="useful_city_search">搜索</string>
 	<string name="label_city_picker">城市选择</string>
+	<string name="ui_city_picker_location_label">已定位城市</string>
+	<string name="ui_city_picker_location">正在定位中...</string>
+	<string name="ui_city_picker_hot_label">热门城市</string>
 </resources>

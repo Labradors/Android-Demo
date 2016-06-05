@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/ui_city_picker_background"
+      android:padding="@dimen/view_padding_8"
+      android:paddingLeft="@dimen/view_padding_16"
+      android:paddingRight="@dimen/view_padding_16"
+      android:text="@string/ui_city_picker_hot_label"
+      />
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/ui_city_picker_hot"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+
+</LinearLayout>

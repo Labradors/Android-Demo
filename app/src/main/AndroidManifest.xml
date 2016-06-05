@@ -17,11 +17,6 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-
-    <activity
-        android:name="mediapicker.activities.MediaPickerActivity"
-        android:screenOrientation="portrait"
-        android:theme="@style/MediaPickerTheme"/>
   </application>
 
 </manifest>

@@ -14,9 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.jiangtao.android_useful_utils.view.widget.utils.AndroidWidgetUtils;
-
-import static android.graphics.Color.BLUE;
-
 /**
  * create by wangh
  * 侧边栏
@@ -134,7 +131,7 @@ public class SideBar extends View {
       paint.setTextSize(30);
 
       if (i == choose) {
-        paint.setColor(getResources().getColor(BLUE));
+        paint.setColor(Color.rgb(86, 86, 86));
         paint.setFakeBoldText(true);
       }
 

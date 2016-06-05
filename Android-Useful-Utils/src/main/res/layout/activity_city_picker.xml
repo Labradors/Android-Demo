@@ -8,7 +8,6 @@
   <include
       layout="@layout/include_toolbar_searchview"
       />
-
   <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -18,8 +17,6 @@
         android:id="@+id/ui_view_city"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/search_include"
-        tools:ignore="ObsoleteLayoutParam,UnusedAttribute"
         />
     <TextView
         android:id="@+id/ui_view_bubble"
@@ -35,11 +32,14 @@
         tools:ignore="RtlHardcoded"
         tools:text="A"
         />
+
     <org.jiangtao.android_useful_utils.view.widget.widget.SideBar
         android:id="@+id/ui_view_sidebar"
         android:layout_width="20dp"
         android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
         android:layout_gravity="right|end"
+        tools:ignore="RtlHardcoded"
         />
   </FrameLayout>
 </LinearLayout>
