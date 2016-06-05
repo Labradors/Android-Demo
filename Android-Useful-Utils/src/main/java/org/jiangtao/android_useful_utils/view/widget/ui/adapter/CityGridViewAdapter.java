@@ -1,10 +1,10 @@
 package org.jiangtao.android_useful_utils.view.widget.ui.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,7 @@ import org.jiangtao.android_useful_utils.R;
  * Created by kevin on 16-6-5.
  * hot city adapter
  */
-public class CityGridViewAdapter
-    extends RecyclerView.Adapter<CityGridViewAdapter.HotCityViewHolder> {
+public class CityGridViewAdapter extends BaseAdapter {
 
   private List<String> mHotCityDatas;
   private Context mContext;
@@ -34,32 +33,28 @@ public class CityGridViewAdapter
     mHotCityDatas.add("重庆市");
   }
 
-  @Override public HotCityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view =
-        LayoutInflater.from(mContext).inflate(R.layout.list_item_hot_city_gridview, parent, false);
-    return new HotCityViewHolder(view);
+  @Override public int getCount() {
+    return mHotCityDatas.size();
   }
 
-  @Override public void onBindViewHolder(HotCityViewHolder holder, int position) {
-    if (holder.name!=null) {
-      holder.name.setText(mHotCityDatas.get(position));
-    }
+  @Override public Object getItem(int position) {
+    return mHotCityDatas.get(position);
   }
 
   @Override public long getItemId(int position) {
     return position;
   }
 
-  @Override public int getItemCount() {
-    return mHotCityDatas.size();
-  }
-
-  public class HotCityViewHolder extends RecyclerView.ViewHolder {
-    TextView name;
-
-    public HotCityViewHolder(View itemView) {
-      super(itemView);
-      name = (TextView) itemView.findViewById(R.id.ui_city_picker_hot_city);
+  @Override public View getView(int position, View convertView, ViewGroup parent) {
+    TextView view = null;
+    if (convertView == null) {
+      convertView = LayoutInflater.from(mContext)
+          .inflate(R.layout.list_item_hot_city_gridview, parent, false);
+      view = (TextView) convertView.findViewById(R.id.ui_city_picker_hot_city);
     }
+    if (view != null) {
+      view.setText(mHotCityDatas.get(position));
+    }
+    return convertView;
   }
 }

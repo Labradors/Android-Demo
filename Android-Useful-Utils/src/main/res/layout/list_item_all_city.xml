@@ -24,10 +24,13 @@
   <TextView
       android:id="@+id/ui_city_picker_name"
       android:layout_width="match_parent"
-      android:layout_height="32dp"
-      android:background="?android:attr/selectableItemBackground"
+      android:layout_height="wrap_content"
+      android:background="@android:color/white"
       android:clickable="true"
       android:gravity="center_vertical"
+      android:paddingTop="@dimen/view_padding_8"
+      android:paddingBottom="@dimen/view_padding_8"
+      android:textColor="@android:color/black"
       android:paddingLeft="@dimen/view_padding_16"
       android:paddingRight="@dimen/view_padding_20"
       />

@@ -15,10 +15,11 @@
       android:text="@string/ui_city_picker_hot_label"
       />
 
-  <android.support.v7.widget.RecyclerView
-      android:id="@+id/ui_city_picker_hot"
+  <org.jiangtao.android_useful_utils.view.widget.widget.WrapHeightGridView
+      android:id="@+id/ui_city_picker_grid"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:numColumns="3"
       />
 
 </LinearLayout>

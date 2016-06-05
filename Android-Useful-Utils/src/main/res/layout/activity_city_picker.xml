@@ -5,9 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-  <include
-      layout="@layout/include_toolbar_searchview"
+  <android.support.v7.widget.SearchView
+      android:id="@+id/ui_city_picker_search"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/view_padding_8"
       />
+
   <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"

@@ -4,4 +4,5 @@
   <dimen name="view_padding_8">8dp</dimen>
   <dimen name="view_padding_16">16dp</dimen>
   <dimen name="view_padding_20">20dp</dimen>
+  <dimen name="view_padding_40">40dp</dimen>
 </resources>

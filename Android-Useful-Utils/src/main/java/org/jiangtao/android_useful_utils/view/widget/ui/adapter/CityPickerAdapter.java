@@ -59,20 +59,27 @@ public class CityPickerAdapter extends RecyclerView.Adapter {
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     if (holder instanceof CityPickerViewHolder) {
       CityPickerViewHolder allViewHolder = (CityPickerViewHolder) holder;
-      allViewHolder.mNameTextView.setText(mCityDatas.get(position));
-      String currentLetter =
-          PinyinUtils.getFirstLetter(PinyinUtils.getPinYin(mCityDatas.get(position)));
-      if (currentLetter.equals(mLetter)) {
-        allViewHolder.mLetterTextView.setVisibility(View.GONE);
+      if (position < mCityDatas.size() - 1) {
+        allViewHolder.mNameTextView.setText(mCityDatas.get(position));
+      }
+      if (position != 2) {
+        String oldLetter =
+            PinyinUtils.getFirstLetter(PinyinUtils.getPinYin(mCityDatas.get(position - 1)));
+        String currentLetter =
+            PinyinUtils.getFirstLetter(PinyinUtils.getPinYin(mCityDatas.get(position)));
+        if (currentLetter.equals(oldLetter)) {
+          allViewHolder.mLetterTextView.setVisibility(View.GONE);
+        } else {
+          allViewHolder.mLetterTextView.setVisibility(View.VISIBLE);
+          allViewHolder.mLetterTextView.setText(currentLetter);
+        }
       } else {
         allViewHolder.mLetterTextView.setVisibility(View.VISIBLE);
-        allViewHolder.mLetterTextView.setText(currentLetter);
+        allViewHolder.mLetterTextView.setText(
+            PinyinUtils.getFirstLetter(PinyinUtils.getPinYin(mCityDatas.get(position))));
       }
-      mLetter = currentLetter;
     } else if (holder instanceof HotViewHolder) {
       HotViewHolder hotViewHolder = (HotViewHolder) holder;
-      GridLayoutManager manager = new GridLayoutManager(mContext, 3);
-      hotViewHolder.mGridView.setLayoutManager(manager);
       hotViewHolder.mGridView.setAdapter(new CityGridViewAdapter(mContext));
     } else if (holder instanceof LocationViewHolder) {
       LocationViewHolder locationViewHolder = (LocationViewHolder) holder;

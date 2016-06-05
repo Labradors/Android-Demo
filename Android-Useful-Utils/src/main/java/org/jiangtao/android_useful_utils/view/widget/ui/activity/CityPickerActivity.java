@@ -30,7 +30,6 @@ public class CityPickerActivity extends AppCompatActivity implements AMapLocatio
 
   public static int OPEN_CITY_PICKER = 100;
   private SearchView mUiViewSearch;
-  private Toolbar mUiToolbarSearch;
   private RecyclerView mUiViewCity;
   private TextView mUiViewBubble;
   private SideBar mUiViewSidebar;
@@ -75,14 +74,6 @@ public class CityPickerActivity extends AppCompatActivity implements AMapLocatio
   }
 
   @SuppressLint("PrivateResource") private void showToolBar() {
-    mUiToolbarSearch.setTitle("");
-    mUiToolbarSearch.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
-    mUiToolbarSearch.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-      @Override public boolean onMenuItemClick(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) finish();
-        return true;
-      }
-    });
     mUiViewSearch.setQueryHint("请输入城市名...");
     mUiViewSearch.setInputType(InputType.TYPE_CLASS_TEXT);
     mUiViewSearch.onActionViewExpanded();
@@ -90,8 +81,7 @@ public class CityPickerActivity extends AppCompatActivity implements AMapLocatio
   }
 
   private void initialization() {
-    mUiViewSearch = (SearchView) findViewById(R.id.ui_view_search);
-    mUiToolbarSearch = (Toolbar) findViewById(R.id.ui_toolbar_search);
+    mUiViewSearch = (SearchView) findViewById(R.id.ui_city_picker_search);
     mUiViewCity = (RecyclerView) findViewById(R.id.ui_view_city);
     mUiViewBubble = (TextView) findViewById(R.id.ui_view_bubble);
     mUiViewSidebar = (SideBar) findViewById(R.id.ui_view_sidebar);
