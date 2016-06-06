@@ -31,8 +31,7 @@ import org.jiangtao.android_useful_utils.view.widget.utils.CityCompartor;
 import org.jiangtao.android_useful_utils.view.widget.widget.SideBar;
 
 /**
- * Created by kevin on 16-5-14.
- * City Picker
+ * Created by Kevin on 2016/6/6.
  */
 public class CityPickerActivity extends AppCompatActivity
     implements AMapLocationListener, SearchView.OnQueryTextListener, OnItemClickListener {
@@ -150,7 +149,6 @@ public class CityPickerActivity extends AppCompatActivity
   }
 
   @Override public boolean onQueryTextSubmit(String query) {
-    //找到与当前名字相同的城市
     final ArrayList<String> list = mCityPickerAdapter.queryCommonName(query);
     if (list.size() != 0) {
       new MaterialDialog.Builder(this).items(list).itemsCallback(new MaterialDialog.ListCallback() {

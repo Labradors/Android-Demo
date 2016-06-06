@@ -4,7 +4,6 @@ import java.util.Comparator;
 
 /**
  * Created by kevin on 16-6-5.
- * 城市
  */
 public class CityCompartor implements Comparator<String> {
 

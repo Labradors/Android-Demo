@@ -14,19 +14,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.jiangtao.android_useful_utils.view.widget.utils.AndroidWidgetUtils;
-/**
- * create by wangh
- * 侧边栏
- */
+
 public class SideBar extends View {
-  // 触摸事件
+
   private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
-  // 26个字母
   public static String[] b = {
-      "定位", "热门", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+      "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
       "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"
   };
-  private int choose = -1;// 选中
+  private int choose = -1;
   private Paint paint = new Paint();
   private final static int CHAR_HEIGHT_DP = 12;
 
@@ -92,9 +88,6 @@ public class SideBar extends View {
     invalidate();
   }
 
-  /**
-   * 重写这个方法
-   */
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
     if (mContainerCharList == null) {
@@ -103,7 +96,7 @@ public class SideBar extends View {
     }
     this.setVisibility(VISIBLE);
 
-    int width = getWidth(); // 获取对应宽度
+    int width = getWidth();
 
     float eachHeight;
     eachHeight = charHeight;
@@ -113,10 +106,7 @@ public class SideBar extends View {
     } else {
       len = b.length;
     }
-    /**
-     * 只需要初始位置确定后续连加即可
-     * 初始位置为每一份的间隔
-     */
+
     float firstPos;
     if (mContainerCharList != null) {
       firstPos = (getHeight() - eachHeight * mContainerCharList.size()) / 2;
@@ -135,7 +125,6 @@ public class SideBar extends View {
         paint.setFakeBoldText(true);
       }
 
-      // x坐标等于中间-字符串宽度的一半.
       float xPos;
       if (mContainerCharList != null) {
         xPos = width / 2 - paint.measureText(mContainerCharList.get(i)) / 2;
@@ -156,7 +145,7 @@ public class SideBar extends View {
       } else {
         canvas.drawText(b[i], xPos, yPos, paint);
       }
-      paint.reset();// 重置画笔
+      paint.reset();
     }
   }
 
@@ -165,7 +154,7 @@ public class SideBar extends View {
       throw new IllegalArgumentException("至少调用一个setBubble或者setCenterDialog方法以显示指示器");
     }
     final int action = event.getAction();
-    final float y = event.getY();// 点击y坐标
+    final float y = event.getY();
     final int oldChoose = choose;
     final OnTouchingLetterChangedListener listener = onTouchingLetterChangedListener;
     int cTemp = -1;
@@ -240,19 +229,11 @@ public class SideBar extends View {
     return true;
   }
 
-  /**
-   * 向外公开的方法
-   */
   public void setOnTouchingLetterChangedListener(
       OnTouchingLetterChangedListener onTouchingLetterChangedListener) {
     this.onTouchingLetterChangedListener = onTouchingLetterChangedListener;
   }
 
-  /**
-   * 接口
-   *
-   * @author coder
-   */
   public interface OnTouchingLetterChangedListener {
     void onTouchingLetterChanged(String s);
   }
