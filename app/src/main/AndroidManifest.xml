@@ -54,6 +54,10 @@
         android:label="城市定位"
         android:theme="@style/AppTheme"/>
 
+    <activity android:name="org.jiangtao.android_useful_utils.view.widget.ui.activity.MapSearchActivity"
+        android:theme="@style/AppTheme.NoActionBar"
+        />
+
     <!-- 高德地图2.4.1 -->
     <service android:name="com.amap.api.location.APSService"/>
     <!-- 高德 -->

@@ -12,6 +12,7 @@ import butterknife.OnClick;
 import javax.crypto.interfaces.PBEKey;
 import org.jiangtao.android.R;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.CityPickerActivity;
+import org.jiangtao.android_useful_utils.view.widget.ui.activity.MapSearchActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,10 +21,18 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main2);
     Button button = (Button) findViewById(R.id.ui_city_picker);
+    Button mapButton = (Button) findViewById(R.id.ui_map_search);
     assert button != null;
     button.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         Intent intent = new Intent(MainActivity.this, CityPickerActivity.class);
+        startActivityForResult(intent, CityPickerActivity.OPEN_CITY_PICKER);
+      }
+    });
+    assert mapButton != null;
+    mapButton.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, MapSearchActivity.class);
         startActivityForResult(intent, CityPickerActivity.OPEN_CITY_PICKER);
       }
     });

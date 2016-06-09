@@ -17,4 +17,11 @@
       android:layout_height="wrap_content"
       android:text="城市选择"/>
 
+  <Button
+      android:id="@+id/ui_map_search"
+      android:layout_below="@+id/ui_city_picker"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="位置搜索"/>
+
 </RelativeLayout>

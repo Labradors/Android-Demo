@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="ResourceName"
+    >
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
+    <com.amap.api.maps2d.MapView
+        android:id="@+id/ui_view_map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/ui_view_map_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/view_padding_8"
+        android:layout_marginRight="@dimen/view_padding_8"
+        android:layout_marginTop="@dimen/view_padding_16"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/view_padding_8"
+        android:queryHint="@string/ui_view_map_search"
+        />
+  </FrameLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
