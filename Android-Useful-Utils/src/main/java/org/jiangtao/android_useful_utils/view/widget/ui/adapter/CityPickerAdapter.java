@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 import org.jiangtao.android_useful_utils.R;
-import org.jiangtao.android_useful_utils.view.widget.ui.androidinterface.OnItemClickListener;
+import org.jiangtao.android_useful_utils.view.widget.ui.interfaces.OnItemClickListener;
 import org.jiangtao.android_useful_utils.view.widget.ui.viewholder.CityPickerViewHolder;
 import org.jiangtao.android_useful_utils.view.widget.ui.viewholder.HotViewHolder;
 import org.jiangtao.android_useful_utils.view.widget.ui.viewholder.LocationViewHolder;

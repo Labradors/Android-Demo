@@ -16,12 +16,12 @@ import org.jiangtao.android_useful_utils.view.widget.ui.activity.MapSearchActivi
 
 public class MainActivity extends AppCompatActivity {
 
-
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main2);
     Button button = (Button) findViewById(R.id.ui_city_picker);
     Button mapButton = (Button) findViewById(R.id.ui_map_search);
+    Button customButton = (Button) findViewById(R.id.ui_custom_view);
     assert button != null;
     button.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
@@ -36,12 +36,20 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, CityPickerActivity.OPEN_CITY_PICKER);
       }
     });
+    assert customButton != null;
+    customButton.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, CustomViewActivity.class);
+        startActivity(intent);
+      }
+    });
   }
 
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
-    if (requestCode==CityPickerActivity.OPEN_CITY_PICKER&&resultCode==RESULT_OK) {
-      Toast.makeText(this, data.getStringExtra(CityPickerActivity.CITY_VALUE), Toast.LENGTH_SHORT).show();
+    if (requestCode == CityPickerActivity.OPEN_CITY_PICKER && resultCode == RESULT_OK) {
+      Toast.makeText(this, data.getStringExtra(CityPickerActivity.CITY_VALUE), Toast.LENGTH_SHORT)
+          .show();
     }
   }
 }

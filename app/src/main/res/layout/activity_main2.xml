@@ -24,4 +24,12 @@
       android:layout_height="wrap_content"
       android:text="位置搜索"/>
 
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/ui_custom_view"
+      android:layout_below="@+id/ui_map_search"
+      android:text="自定义View"
+      />
+
 </RelativeLayout>

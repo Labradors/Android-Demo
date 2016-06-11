@@ -10,7 +10,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 /**
  * author MrJiang on 2016/1/28.
  */
-public class PinyinUtils {
+public final class PinyinUtils {
   /**
    * 获取拼音的首字母（大写）
    */

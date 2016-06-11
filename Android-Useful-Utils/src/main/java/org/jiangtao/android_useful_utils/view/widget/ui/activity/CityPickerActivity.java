@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.List;
 import org.jiangtao.android_useful_utils.R;
 import org.jiangtao.android_useful_utils.view.widget.ui.adapter.CityPickerAdapter;
-import org.jiangtao.android_useful_utils.view.widget.ui.androidinterface.OnItemClickListener;
+import org.jiangtao.android_useful_utils.view.widget.ui.interfaces.OnItemClickListener;
 import org.jiangtao.android_useful_utils.view.widget.utils.AmapLocation;
 import org.jiangtao.android_useful_utils.view.widget.utils.CityCompartor;
 import org.jiangtao.android_useful_utils.view.widget.widget.SideBar;

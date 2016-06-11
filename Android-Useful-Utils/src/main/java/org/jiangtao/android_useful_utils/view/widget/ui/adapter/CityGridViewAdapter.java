@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import org.jiangtao.android_useful_utils.R;
-import org.jiangtao.android_useful_utils.view.widget.ui.androidinterface.OnItemClickListener;
+import org.jiangtao.android_useful_utils.view.widget.ui.interfaces.OnItemClickListener;
 
 /**
  * Created by kevin on 16-6-5.

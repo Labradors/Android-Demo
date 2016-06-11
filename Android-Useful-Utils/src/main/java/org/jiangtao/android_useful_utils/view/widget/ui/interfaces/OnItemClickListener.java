@@ -1,4 +1,4 @@
-package org.jiangtao.android_useful_utils.view.widget.ui.androidinterface;
+package org.jiangtao.android_useful_utils.view.widget.ui.interfaces;
 
 /**
  * Created by kevin on 16-6-5.
