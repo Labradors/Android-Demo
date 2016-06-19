@@ -7,50 +7,78 @@ import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import javax.crypto.interfaces.PBEKey;
+
 import org.jiangtao.android.R;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.CityPickerActivity;
+import org.jiangtao.android_useful_utils.view.widget.ui.activity.GlideMaxImageActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.MapSearchActivity;
+import org.jiangtao.android_useful_utils.view.widget.ui.model.Image;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main2);
-    Button button = (Button) findViewById(R.id.ui_city_picker);
-    Button mapButton = (Button) findViewById(R.id.ui_map_search);
-    Button customButton = (Button) findViewById(R.id.ui_custom_view);
-    assert button != null;
-    button.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, CityPickerActivity.class);
-        startActivityForResult(intent, CityPickerActivity.OPEN_CITY_PICKER);
-      }
-    });
-    assert mapButton != null;
-    mapButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, MapSearchActivity.class);
-        startActivityForResult(intent, CityPickerActivity.OPEN_CITY_PICKER);
-      }
-    });
-    assert customButton != null;
-    customButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, CustomViewActivity.class);
-        startActivity(intent);
-      }
-    });
-  }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        Button button = (Button) findViewById(R.id.ui_city_picker);
+        Button mapButton = (Button) findViewById(R.id.ui_map_search);
+        Button customButton = (Button) findViewById(R.id.ui_custom_view);
+        Button glideButton = (Button) findViewById(R.id.ui_view_glide_max_image);
+        assert button != null;
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CityPickerActivity.class);
+                startActivityForResult(intent, CityPickerActivity.OPEN_CITY_PICKER);
+            }
+        });
+        assert mapButton != null;
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MapSearchActivity.class);
+                startActivityForResult(intent, CityPickerActivity.OPEN_CITY_PICKER);
+            }
+        });
+        assert customButton != null;
+        customButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CustomViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
-  @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-    if (requestCode == CityPickerActivity.OPEN_CITY_PICKER && resultCode == RESULT_OK) {
-      Toast.makeText(this, data.getStringExtra(CityPickerActivity.CITY_VALUE), Toast.LENGTH_SHORT)
-          .show();
+        assert glideButton != null;
+        glideButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GlideMaxImageActivity.class);
+                ArrayList<Image> list = new ArrayList<Image>();
+                Image image = new Image();
+                image.url = "http://pics.sc.chinaz.com/files/pic/pic9/201606/apic21154.jpg";
+                list.add(image);
+                intent.putParcelableArrayListExtra(GlideMaxImageActivity.CONSTANT_IMAGE_LIST, list);
+                intent.putExtra(GlideMaxImageActivity.CONSTANT_IMAGE_POSTION, 0);
+                startActivity(intent);
+            }
+        });
     }
-  }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CityPickerActivity.OPEN_CITY_PICKER && resultCode == RESULT_OK) {
+            Toast.makeText(this, data.getStringExtra(CityPickerActivity.CITY_VALUE), Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
 }

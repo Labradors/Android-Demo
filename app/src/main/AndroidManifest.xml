@@ -51,6 +51,11 @@
         android:name="org.jiangtao.android_useful_utils.view.widget.ui.activity.CityPickerActivity"
         android:label="城市定位"
         android:theme="@style/AppTheme"/>
+
+    <activity
+        android:name="org.jiangtao.android_useful_utils.view.widget.ui.activity.GlideMaxImageActivity"
+        android:label="查看大图"
+        android:theme="@style/AppTheme"/>
     <activity
         android:name="org.jiangtao.android_useful_utils.view.widget.ui.activity.MapSearchActivity"
         android:theme="@style/AppTheme.NoActionBar"/>

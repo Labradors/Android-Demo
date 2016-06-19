@@ -32,4 +32,12 @@
       android:text="自定义View"
       />
 
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/ui_view_glide_max_image"
+      android:layout_below="@+id/ui_map_search"
+      android:text="查看大图"
+      />
+
 </RelativeLayout>

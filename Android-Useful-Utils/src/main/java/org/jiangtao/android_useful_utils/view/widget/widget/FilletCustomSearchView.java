@@ -12,6 +12,7 @@ import org.jiangtao.android_useful_utils.R;
 
 /**
  * Created by kevin on 16-6-10.
+ * Custom SearchView
  */
 public class FilletCustomSearchView extends View {
 
