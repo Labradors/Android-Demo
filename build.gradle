@@ -16,6 +16,8 @@ buildscript {
 allprojects {
   repositories {
     jcenter()
+    //photoView
+    maven { url "https://jitpack.io" }
   }
   tasks.withType(Javadoc) {
     options.addStringOption('Xdoclint:none', '-quiet')

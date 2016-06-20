@@ -2,25 +2,23 @@ package org.jiangtao.android.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-import javax.crypto.interfaces.PBEKey;
+import com.smartydroid.android.starter.kit.model.entity.Entity;
 
 import org.jiangtao.android.R;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.CityPickerActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.GlideMaxImageActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.MapSearchActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.model.Image;
+import org.jiangtao.android_useful_utils.view.widget.ui.model.ImageBaseEntity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,11 +60,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, GlideMaxImageActivity.class);
-                ArrayList<Image> list = new ArrayList<Image>();
+                List<ImageBaseEntity> list = new ArrayList<>();
                 Image image = new Image();
                 image.url = "http://pics.sc.chinaz.com/files/pic/pic9/201606/apic21154.jpg";
                 list.add(image);
-                intent.putParcelableArrayListExtra(GlideMaxImageActivity.CONSTANT_IMAGE_LIST, list);
+                list.add(image);
+                intent.putParcelableArrayListExtra(GlideMaxImageActivity.CONSTANT_IMAGE_LIST, (ArrayList<? extends Parcelable>) list);
                 intent.putExtra(GlideMaxImageActivity.CONSTANT_IMAGE_POSTION, 0);
                 startActivity(intent);
             }

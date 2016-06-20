@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <org.jiangtao.android_useful_utils.view.widget.widget.zoomImageView
+    <uk.co.senab.photoview.PhotoView
         android:id="@+id/ui_view_zoom_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
