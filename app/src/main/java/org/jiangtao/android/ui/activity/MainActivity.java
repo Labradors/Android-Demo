@@ -3,24 +3,15 @@ package org.jiangtao.android.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-import javax.crypto.interfaces.PBEKey;
-
+import java.util.ArrayList;
 import org.jiangtao.android.R;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.CityPickerActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.GlideMaxImageActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.MapSearchActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.model.Image;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Button mapButton = (Button) findViewById(R.id.ui_map_search);
         Button customButton = (Button) findViewById(R.id.ui_custom_view);
         Button glideButton = (Button) findViewById(R.id.ui_view_glide_max_image);
+        Button customTimer = (Button) findViewById(R.id.ui_view_custom_timer);
         assert button != null;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
                 intent.putParcelableArrayListExtra(GlideMaxImageActivity.CONSTANT_IMAGE_LIST, list);
                 intent.putExtra(GlideMaxImageActivity.CONSTANT_IMAGE_POSTION, 0);
                 startActivity(intent);
+            }
+        });
+
+        assert customTimer != null;
+        customTimer.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                //点击打开自定义timer
+
             }
         });
     }

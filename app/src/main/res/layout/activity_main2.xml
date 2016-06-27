@@ -15,28 +15,38 @@
       android:id="@+id/ui_city_picker"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="城市选择"/>
+      android:text="城市选择"
+      />
 
   <Button
       android:id="@+id/ui_map_search"
-      android:layout_below="@+id/ui_city_picker"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="位置搜索"/>
+      android:layout_below="@+id/ui_city_picker"
+      android:text="位置搜索"
+      />
 
   <Button
+      android:id="@+id/ui_custom_view"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:id="@+id/ui_custom_view"
       android:layout_below="@+id/ui_map_search"
       android:text="自定义View"
       />
 
   <Button
+      android:id="@+id/ui_view_glide_max_image"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:id="@+id/ui_view_glide_max_image"
       android:layout_below="@+id/ui_map_search"
+      android:text="查看大图"
+      />
+
+  <Button
+      android:id="@+id/ui_view_custom_timer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/ui_view_glide_max_image"
       android:text="查看大图"
       />
 
