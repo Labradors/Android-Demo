@@ -2,12 +2,11 @@ package org.jiangtao.android_useful_utils.view.widget.ui.model;
 
 import android.net.Uri;
 import android.os.Parcel;
-import android.os.Parcelable;
 
 /**
- * Created by kevin on 16-6-19.
+ * Created by kevin on 16-6-20.
  */
-public class Image implements Parcelable{
+public class Image extends ImageBaseEntity {
 
     public String url;
 
@@ -40,6 +39,7 @@ public class Image implements Parcelable{
         }
     };
 
+    @Override
     public Uri getUri() {
         return Uri.parse(url);
     }

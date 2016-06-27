@@ -22,7 +22,7 @@
       android:id="@+id/ui_map_search"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/ui_city_picker"
+      android:layout_below="@id/ui_city_picker"
       android:text="位置搜索"
       />
 
@@ -47,7 +47,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@+id/ui_view_glide_max_image"
-      android:text="查看大图"
+      android:text=""
       />
 
 </RelativeLayout>
