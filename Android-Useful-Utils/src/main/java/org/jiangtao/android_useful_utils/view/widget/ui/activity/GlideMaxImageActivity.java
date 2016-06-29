@@ -9,9 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import java.util.ArrayList;
 import java.util.List;
 import org.jiangtao.android_useful_utils.R;
@@ -32,6 +36,7 @@ public class GlideMaxImageActivity extends AppCompatActivity
   private int position;
   private ViewPagerFixed mUiViewViewPager;
   private TextView mUiViewPageText;
+  private ProgressBar mUiProgress;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -63,6 +68,7 @@ public class GlideMaxImageActivity extends AppCompatActivity
   private void initializationView() {
     mUiViewViewPager = ButterKnife.findById(this, R.id.ui_view_view_pager);
     mUiViewPageText = ButterKnife.findById(this, R.id.ui_view_page_text);
+    mUiProgress = ButterKnife.findById(this, R.id.ui_progress_bar);
   }
 
   @Override
@@ -103,7 +109,23 @@ public class GlideMaxImageActivity extends AppCompatActivity
       PhotoView imageView = (PhotoView) v.findViewById(R.id.ui_view_zoom_image);
       Uri uri = Uri.parse(mItemLists.get(position));
       container.addView(imageView);
-      Glide.with(GlideMaxImageActivity.this).load(uri).into(imageView);
+      mUiProgress.setVisibility(View.VISIBLE);
+      Glide.with(GlideMaxImageActivity.this)
+          .load(uri)
+          .listener(new RequestListener<Uri, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, Uri model, Target<GlideDrawable> target,
+                boolean isFirstResource) {
+              return false;
+            }
+
+            @Override public boolean onResourceReady(GlideDrawable resource, Uri model,
+                Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+              mUiProgress.setVisibility(View.GONE);
+              return false;
+            }
+          })
+          .into(imageView);
       imageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
         @Override public void onPhotoTap(View view, float v, float v1) {
           GlideMaxImageActivity.this.finish();
