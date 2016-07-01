@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Android-Demo</string>
-    <string name="useful_city_search">搜索</string>
-    <string name="title_activity_float">FloatActivity</string>
+  <string name="app_name">Android-Demo</string>
+  <string name="useful_city_search">搜索</string>
+  <string name="title_activity_float">FloatActivity</string>
+  <string name="ic">切图</string>
+  <string name="animation">动画</string>
 </resources>

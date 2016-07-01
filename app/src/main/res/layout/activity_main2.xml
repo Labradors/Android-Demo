@@ -43,11 +43,20 @@
       />
 
   <Button
-      android:id="@+id/ui_view_custom_timer"
+      android:id="@+id/ui_view_custom_ps"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@+id/ui_view_glide_max_image"
-      android:text=""
+      android:text="@string/ic"
       />
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/animation"
+      android:id="@+id/ui_view_animation_button"
+      android:layout_below="@+id/ui_view_custom_ps"
+      android:layout_centerHorizontal="true"
+      />
+
 
 </RelativeLayout>

@@ -55,9 +55,7 @@ public class StringMatcher {
 	}
 	
 	private static boolean isKorean(char c) {
-		if (c >= KOREAN_UNICODE_START && c <= KOREAN_UNICODE_END)
-			return true;
-		return false;
+		return c >= KOREAN_UNICODE_START && c <= KOREAN_UNICODE_END;
 	}
 	
 	private static boolean isInitialSound(char c) {

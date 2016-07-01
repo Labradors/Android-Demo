@@ -7,5 +7,5 @@ import android.net.Uri;
  */
 public interface Interface01 {
 
-    public Uri getUri();
+    Uri getUri();
 }
