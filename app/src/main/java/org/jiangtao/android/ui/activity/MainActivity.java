@@ -3,6 +3,7 @@ package org.jiangtao.android.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -12,18 +13,24 @@ import org.jiangtao.android.R;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.CityPickerActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.GlideMaxImageActivity;
 import org.jiangtao.android_useful_utils.view.widget.ui.activity.MapSearchActivity;
+import picker.image.android.com.library.ui.ImagePickerActivity;
+
+import static org.jiangtao.android_useful_utils.view.widget.utils.TransitionHelper.setupWindowAnimations;
+import static org.jiangtao.android_useful_utils.view.widget.utils.TransitionHelper.transitionToActivity;
 
 public class MainActivity extends AppCompatActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main2);
+    setupWindowAnimations(this,500,Gravity.LEFT);
     Button button = (Button) findViewById(R.id.ui_city_picker);
     Button mapButton = (Button) findViewById(R.id.ui_map_search);
     Button customButton = (Button) findViewById(R.id.ui_custom_view);
     Button glideButton = (Button) findViewById(R.id.ui_view_glide_max_image);
-    Button customTimer = (Button) findViewById(R.id.ui_view_custom_ps);
+    final Button customTimer = (Button) findViewById(R.id.ui_view_custom_ps);
     Button animationBtn = (Button) findViewById(R.id.ui_view_animation_button);
+    Button newImageView = (Button) findViewById(R.id.ui_view_new_image);
     assert button != null;
     button.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
@@ -41,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
     assert customButton != null;
     customButton.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, CustomViewActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(MainActivity.this, CustomViewActivity.class);
+        //startActivity(intent);
+
+        transitionToActivity(CustomViewActivity.class,MainActivity.this);
       }
     });
 
@@ -62,21 +71,26 @@ public class MainActivity extends AppCompatActivity {
     customTimer.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         //点击打开自定义timer
-        Intent intent = new Intent(MainActivity.this, FloatActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(MainActivity.this, FloatActivity.class);
+        //startActivity(intent);
+        transitionToActivity(FloatActivity.class,customTimer,MainActivity.this);
       }
     });
 
     assert animationBtn != null;
     animationBtn.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        Intent intent=new Intent(MainActivity.this,DemoActivity.class);
+        Intent intent = new Intent(MainActivity.this, DemoActivity.class);
         startActivity(intent);
       }
     });
+    newImageView.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        ImagePickerActivity.openActivity(MainActivity.this, null,
+            ImagePickerActivity.CONSTANT_REQUEST_CODE);
+      }
+    });
   }
-
-
 
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);

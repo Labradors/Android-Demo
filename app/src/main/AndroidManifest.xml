@@ -68,6 +68,8 @@
     </activity>
     <activity android:name=".ui.activity.DemoActivity">
     </activity>
+    <activity android:name="picker.image.android.com.library.ui.ImagePickerActivity"
+        android:theme="@style/AppTheme.NoActionBar"/>
   </application>
 
 </manifest>
