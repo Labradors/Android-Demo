@@ -31,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
     final Button customTimer = (Button) findViewById(R.id.ui_view_custom_ps);
     Button animationBtn = (Button) findViewById(R.id.ui_view_animation_button);
     Button newImageView = (Button) findViewById(R.id.ui_view_new_image);
+
+    Button buttonLine = (Button) findViewById(R.id.ui_view_path_line_two);
+    buttonLine.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(MainActivity.this, PathActivity.class);
+        startActivity(intent);
+      }
+    });
+    
     assert button != null;
     button.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
@@ -71,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
     customTimer.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         //点击打开自定义timer
-        //Intent intent = new Intent(MainActivity.this, FloatActivity.class);
-        //startActivity(intent);
-        transitionToActivity(FloatActivity.class,customTimer,MainActivity.this);
+        Intent intent = new Intent(MainActivity.this, FloatActivity.class);
+        startActivity(intent);
+//        transitionToActivity(FloatActivity.class,customTimer,MainActivity.this);
       }
     });
 

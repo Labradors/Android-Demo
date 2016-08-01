@@ -66,5 +66,14 @@
       android:layout_centerHorizontal="true"
       />
 
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="path line 2"
+      android:id="@+id/ui_view_path_line_two"
+      android:layout_below="@+id/ui_view_new_image"
+      android:layout_centerHorizontal="true"
+      />
+
 
 </RelativeLayout>
