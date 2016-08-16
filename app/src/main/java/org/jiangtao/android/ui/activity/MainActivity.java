@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main2);
     setupWindowAnimations(this,500,Gravity.LEFT);
-    Button buttonObject = (Button) findViewById(R.id.ui_view_animation_object);
-    Button animationButton = (Button) findViewById(R.id.ui_view_animation_drawable);
     Button button = (Button) findViewById(R.id.ui_city_picker);
     Button mapButton = (Button) findViewById(R.id.ui_map_search);
     Button customButton = (Button) findViewById(R.id.ui_custom_view);
@@ -34,13 +32,12 @@ public class MainActivity extends AppCompatActivity {
     Button animationBtn = (Button) findViewById(R.id.ui_view_animation_button);
     Button newImageView = (Button) findViewById(R.id.ui_view_new_image);
 
-    Button pathButton = (Button) findViewById(R.id.path_view);
-    pathButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, PathViewActivity.class);
-        startActivity(intent);
-      }
-    });
+    //pathButton.setOnClickListener(new View.OnClickListener() {
+    //  @Override public void onClick(View v) {
+    //    Intent intent = new Intent(MainActivity.this, PathViewActivity.class);
+    //    startActivity(intent);
+    //  }
+    //});
 
 
     Button buttonLine = (Button) findViewById(R.id.ui_view_path_line_two);
@@ -112,19 +109,19 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    animationButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, DrawableAmination.class);
-        startActivity(intent);
-      }
-    });
-
-    buttonObject.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, ObjectAnimation.class);
-        startActivity(intent);
-      }
-    });
+    //animationButton.setOnClickListener(new View.OnClickListener() {
+    //  @Override public void onClick(View v) {
+    //    Intent intent = new Intent(MainActivity.this, DrawableAmination.class);
+    //    startActivity(intent);
+    //  }
+    //});
+    //
+    //buttonObject.setOnClickListener(new View.OnClickListener() {
+    //  @Override public void onClick(View v) {
+    //    Intent intent = new Intent(MainActivity.this, ObjectAnimation.class);
+    //    startActivity(intent);
+    //  }
+    //});
   }
 
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
