@@ -6,7 +6,11 @@ import org.jiangtao.android_useful_utils.R;
 import org.jiangtao.android_useful_utils.view.widget.widget.WrapHeightGridView;
 
 /**
- * Created by kevin on 16-6-5.
+ * Class: HotViewHolder <br>
+ * Description:  <br>
+ * Creator: kevin <br>
+ * Date: 16/8/17 上午12:19 <br>
+ * Update: 16/8/17 上午12:19 <br>
  */
 public class HotViewHolder extends RecyclerView.ViewHolder {
 
