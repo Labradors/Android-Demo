@@ -68,8 +68,17 @@
     </activity>
     <activity android:name=".ui.activity.DemoActivity">
     </activity>
-    <activity android:name="picker.image.android.com.library.ui.ImagePickerActivity"
+    <activity
+        android:name="picker.image.android.com.library.ui.ImagePickerActivity"
         android:theme="@style/AppTheme.NoActionBar"/>
+    <activity android:name=".ui.activity.DrawableAmination">
+    </activity>
+    <activity android:name=".ui.activity.ObjectAnimation">
+    </activity>
+    <activity android:name=".ui.activity.PathViewActivity">
+    </activity>
+    <activity android:name=".ui.activity.PathMeasureActivity">
+    </activity>
   </application>
 
 </manifest>

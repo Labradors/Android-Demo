@@ -5,4 +5,5 @@
   <string name="ic">切图</string>
   <string name="animation">动画</string>
   <string name="new_image">图片浏览器新版</string>
+  <string name="animation_drawable">AnimationDrawable</string>
 </resources>

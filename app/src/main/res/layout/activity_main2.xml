@@ -66,5 +66,33 @@
       android:layout_centerHorizontal="true"
       />
 
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/animation_drawable"
+      android:id="@+id/ui_view_animation_drawable"
+      android:layout_below="@+id/ui_view_new_image"
+      android:layout_centerHorizontal="true"
+      />
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/animation_drawable"
+      android:id="@+id/ui_view_animation_object"
+      android:layout_below="@+id/ui_view_animation_drawable"
+      android:layout_centerHorizontal="true"
+      />
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/path_view"
+      android:text="Path View"
+      android:layout_below="@+id/ui_view_animation_object"
+      android:layout_centerHorizontal="true"/>
+
+
+
 
 </RelativeLayout>

@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main2);
     setupWindowAnimations(this,500,Gravity.LEFT);
+    Button buttonObject = (Button) findViewById(R.id.ui_view_animation_object);
+    Button animationButton = (Button) findViewById(R.id.ui_view_animation_drawable);
     Button button = (Button) findViewById(R.id.ui_city_picker);
     Button mapButton = (Button) findViewById(R.id.ui_map_search);
     Button customButton = (Button) findViewById(R.id.ui_custom_view);
@@ -31,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
     final Button customTimer = (Button) findViewById(R.id.ui_view_custom_ps);
     Button animationBtn = (Button) findViewById(R.id.ui_view_animation_button);
     Button newImageView = (Button) findViewById(R.id.ui_view_new_image);
+
+    Button pathButton = (Button) findViewById(R.id.path_view);
+    pathButton.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, PathViewActivity.class);
+        startActivity(intent);
+      }
+    });
+
+
     assert button != null;
     button.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
@@ -88,6 +100,20 @@ public class MainActivity extends AppCompatActivity {
       @Override public void onClick(View v) {
         ImagePickerActivity.openActivity(MainActivity.this, null,
             ImagePickerActivity.CONSTANT_REQUEST_CODE);
+      }
+    });
+
+    animationButton.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, DrawableAmination.class);
+        startActivity(intent);
+      }
+    });
+
+    buttonObject.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, ObjectAnimation.class);
+        startActivity(intent);
       }
     });
   }
