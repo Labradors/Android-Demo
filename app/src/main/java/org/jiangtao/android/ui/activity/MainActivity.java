@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main2);
-    setupWindowAnimations(this,500,Gravity.LEFT);
+    setupWindowAnimations(this, 500, Gravity.LEFT);
     Button button = (Button) findViewById(R.id.ui_city_picker);
     Button mapButton = (Button) findViewById(R.id.ui_map_search);
     Button customButton = (Button) findViewById(R.id.ui_custom_view);
@@ -31,7 +31,22 @@ public class MainActivity extends AppCompatActivity {
     final Button customTimer = (Button) findViewById(R.id.ui_view_custom_ps);
     Button animationBtn = (Button) findViewById(R.id.ui_view_animation_button);
     Button newImageView = (Button) findViewById(R.id.ui_view_new_image);
-
+    //手势1监听
+    findViewById(R.id.ui_view_gesture).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        GesturesActivityOne.startGesturesOne(MainActivity.this);
+      }
+    });
+    findViewById(R.id.ui_view_gesture_one).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        MyGestureListenerActivity.startMyGesture(MainActivity.this);
+      }
+    });
+    findViewById(R.id.velocity_racker).setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        VelocityTrackerActivity.startVelocityTracker(MainActivity.this);
+      }
+    });
     //pathButton.setOnClickListener(new View.OnClickListener() {
     //  @Override public void onClick(View v) {
     //    Intent intent = new Intent(MainActivity.this, PathViewActivity.class);
@@ -39,16 +54,14 @@ public class MainActivity extends AppCompatActivity {
     //  }
     //});
 
-
     Button buttonLine = (Button) findViewById(R.id.ui_view_path_line_two);
     buttonLine.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
+      @Override public void onClick(View view) {
         Intent intent = new Intent(MainActivity.this, PathActivity.class);
         startActivity(intent);
       }
     });
-    
+
     assert button != null;
     button.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
@@ -69,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         //Intent intent = new Intent(MainActivity.this, CustomViewActivity.class);
         //startActivity(intent);
 
-        transitionToActivity(CustomViewActivity.class,MainActivity.this);
+        transitionToActivity(CustomViewActivity.class, MainActivity.this);
       }
     });
 
@@ -91,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         //点击打开自定义timer
         Intent intent = new Intent(MainActivity.this, FloatActivity.class);
         startActivity(intent);
-//        transitionToActivity(FloatActivity.class,customTimer,MainActivity.this);
+        //        transitionToActivity(FloatActivity.class,customTimer,MainActivity.this);
       }
     });
 
